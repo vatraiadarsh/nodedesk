@@ -1,9 +1,11 @@
+import path from 'path'
 import express from "express";
 import dotenv from "dotenv";
 import morgan from "morgan";
 import connectDB from "./config/db.js";
 
 import userRoleRoutes from "./routes/userRoles.js";
+import userRoutes from "./routes/users.js";
 
 const app = express();
 dotenv.config();
@@ -19,7 +21,13 @@ app.get("/test", (req, res) => {
 
 // routes
 
-app.use('/api/user-role', userRoleRoutes)
+app.use('/api/user-role', userRoleRoutes);
+app.use('/api/users', userRoutes);
+
+
+const __dirname = path.resolve()
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
