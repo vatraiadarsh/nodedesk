@@ -14,7 +14,7 @@ connectDB();
 app.use(morgan("dev"));
 app.use(express.json());
 
-app.get("/test", (req, res) => {
+app.get("/", (req, res) => {
   res.send({ testing: "successful" });
 });
 
