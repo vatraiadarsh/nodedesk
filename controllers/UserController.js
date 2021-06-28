@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
-import User from "../models/users.js";
-import SecretCode from "../models/secretCode.js";
+import User from "../models/User.js";
+import SecretCode from "../models/Code.js";
 
 
 export const createUser = async (req, res) => {

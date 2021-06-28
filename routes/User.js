@@ -1,7 +1,7 @@
 import express from "express";
 const router = express.Router();
 
-import {createUser} from "../controllers/User.js";
+import {createUser} from "../controllers/UserController.js";
 import {uploadSingleImage} from "../middlewares/fileUpload.js"
 
 

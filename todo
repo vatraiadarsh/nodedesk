@@ -1,0 +1,12 @@
+->login
+
+
+if(email_verified){
+    login
+}else{
+    redirect(/verify)
+}
+
+& /verify 
+
+    if(date and time !expired && )

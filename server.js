@@ -4,8 +4,8 @@ import dotenv from "dotenv";
 import morgan from "morgan";
 import connectDB from "./config/db.js";
 
-import userRoleRoutes from "./routes/userRoles.js";
-import userRoutes from "./routes/users.js";
+import userRoleRoutes from "./routes/Role.js";
+import userRoutes from "./routes/User.js";
 
 const app = express();
 dotenv.config();
