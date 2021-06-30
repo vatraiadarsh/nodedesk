@@ -1,6 +1,7 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
+const { Schema } = mongoose;
 
-const secretCodeSchema = mongoose.Schema({
+const secretCodeSchema = new Schema({
     email: {
         type: String,
         required: true,

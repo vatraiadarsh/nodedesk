@@ -1,25 +1,23 @@
-import userRole from "../models/Role.js";
+import Role from '../models/Role.js';
+import asyncHandler from '../middlewares/async.js';
+import ErrorResponse from '../helpers/errorResponse.js';
 
+export const createUserRole = asyncHandler(async (req, res, next) => {
+  const { name } = req.body;
+  const checkUserRole = await Role.findOne({ name });
+  if (checkUserRole) {
+    return next(new ErrorResponse(`The Role ${req.body.name} already exists.`));
+  }
 
-export const createUserRole = async (req, res) => {
-    const { name, type, permission } = req.body;
-    const checkUserRole = await userRole.findOne({ name });
-    if (checkUserRole) {
-        res.status(401).json({ message: "User Role already exists" })
-    }
-    const userRoles = new userRole({
-        name,
-        type,
-        permission
-    });
-    const createdUserRoles = await userRoles.save();
-    return res.status(201).json(createdUserRoles);
-};
-
-
+  const role = await Role.create({name});
+  return res.status(201).json({
+    success: true,
+    data: role,
+  });
+});
 
 export const test = (req, res) => {
-    res.json({
-        testing: "successful"
-    });
-}
+  res.json({
+    testing: 'successful',
+  });
+};

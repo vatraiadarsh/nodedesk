@@ -1,7 +1,7 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 const { Schema } = mongoose;
 
-const RoleSchema = new Schema({
+const DepartmentSchema = new Schema({
     name: {
         type: String,
         required: [true, 'Please add a name'],
@@ -9,14 +9,10 @@ const RoleSchema = new Schema({
         trim: true,
         maxlength: [50, 'Name can not be more than 50 characters'],
       },
-    status:{
-        type:Boolean,
-        default:false
-    }
    
 }, {
     timestamps: true
 });
 
-const Role = mongoose.model("Role", RoleSchema);
-export default Role;
+const Department = mongoose.model("Department", DepartmentSchema);
+export default Department;
